@@ -19,6 +19,23 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
+                Text(
+                  "AGE - CALCULATOR",
+                  style: TextStyle(
+                    color: Colors.orange,
+                    fontSize: 60,
+                  ),
+                ),
+                Text(
+                  "------------------------------------",
+                  style: TextStyle(
+                    color: Colors.orangeAccent,
+                    fontSize: 60,
+                  ),
+                ),
+                SizedBox(
+                  height: 48,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -33,8 +50,8 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                               ),
                             ),
                           ),
-                          height: 130.0,
-                          width: 100.0,
+                          height: 150.0,
+                          width: 130.0,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
                             border: Border.all(
@@ -50,13 +67,13 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                       ],
                     ),
                     SizedBox(
-                      width: 20,
+                      width: 60,
                     ),
                     Column(
                       children: [
                         Container(
-                          height: 130.00,
-                          width: 100.0,
+                          height: 150.00,
+                          width: 130.0,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
                             border: Border.all(
@@ -80,7 +97,7 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                       ],
                     ),
                     SizedBox(
-                      width: 20,
+                      width: 60,
                     ),
                     Column(
                       children: [
@@ -93,8 +110,8 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                               ),
                             ),
                           ),
-                          height: 130.0,
-                          width: 100.0,
+                          height: 150.0,
+                          width: 130.0,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
                             border: Border.all(
@@ -109,122 +126,115 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                         ),
                       ],
                     ),
-                    SizedBox(
-                      width: 20,
-                    ),
                   ],
+                ),
+                SizedBox(
+                  height: 45,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(25.0),
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              // padding: EdgeInsets.all(70),
-                              primary: Color(0xffd55b4f),
-                              onPrimary: Color(0xffd55b4f),
-                            ),
-                            child: Text(
-                              'FROM',
-                              style: TextStyleManager.SMALL_TEXT,
-                            ),
-                            onPressed: () async {
-                              DateTime? date = await showDatePicker(
-                                context: context,
-                                initialDate: DateTime.now().add(
-                                  const Duration(days: 0),
-                                ),
-                                firstDate: DateTime.now().add(
-                                  const Duration(days: -30000),
-                                ),
-                                lastDate: DateTime.now().add(
-                                  const Duration(days: 3000),
-                                ),
-                              );
-
-                              actions:
-                              [
-                                ElevatedButton(
-                                  child: const Text("OK"),
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                ),
-                              ];
-
-                              controller.setStartDate(date);
-                            },
-                          ),
+                    Padding(
+                      padding: const EdgeInsets.all(25.0),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          // padding: EdgeInsets.all(70),
+                          primary: Color(0xffffc107),
+                          // onPrimary: Colors.black,
                         ),
-                        Obx(
-                          () => Text(
-                            controller.getStartDate(),
-                            style: TextStyleManager.MEDIUM_TEXT,
-                          ),
+                        child: Text(
+                          'DATE OF BIRTH',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 25,
+                              fontWeight: FontWeight.normal),
                         ),
-                      ],
+                        onPressed: () async {
+                          DateTime? date = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now().add(
+                              const Duration(days: 0),
+                            ),
+                            firstDate: DateTime.now().add(
+                              const Duration(days: -30000),
+                            ),
+                            lastDate: DateTime.now().add(
+                              const Duration(days: 3000),
+                            ),
+                          );
+
+                          controller.setStartDate(date);
+                        },
+                      ),
+                    ),
+                    Obx(
+                      () => Text(
+                        controller.getStartDate(),
+                        style: TextStyle(
+                          fontSize: 38,
+                          color: Color(0xffff9800),
+                        ),
+                      ),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 55,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(25.0),
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              // padding: EdgeInsets.all(70),
-                              primary: Color(0xffd55b4f),
-                              onPrimary: Colors.black,
-                              // shape: CircleBorder(),
-                            ),
-                            child: Text(
-                              ' TO ',
-                              style: TextStyleManager.SMALL_TEXT,
-                            ),
-                            onPressed: () async {
-                              DateTime? date = await showDatePicker(
-                                context: context,
-                                initialDate: DateTime.now().add(
-                                  const Duration(days: 0),
-                                ),
-                                firstDate: DateTime.now().add(
-                                  const Duration(days: -30000),
-                                ),
-                                lastDate: DateTime.now().add(
-                                  const Duration(days: 3000),
-                                ),
-                              );
-                              actions:
-                              <Widget>[
-                                ElevatedButton(
-                                  child: const Text("OK"),
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                ),
-                              ];
-                              controller.setEndDate(date);
-                            },
-                          ),
+                    Padding(
+                      padding: const EdgeInsets.all(25.0),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Color(0xffffc107),
+                          onPrimary: Colors.black,
                         ),
-                        Obx(
-                          () => Text(
-                            controller.getEndDate(),
-                            style: TextStyleManager.MEDIUM_TEXT,
-                          ),
+                        child: Text(
+                          'CURRENT DATE',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 25,
+                              fontWeight: FontWeight.normal),
                         ),
-                      ],
+                        onPressed: () async {
+                          DateTime? date = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now().add(
+                              const Duration(days: 0),
+                            ),
+                            firstDate: DateTime.now().add(
+                              const Duration(days: -30000),
+                            ),
+                            lastDate: DateTime.now().add(
+                              const Duration(days: 3000),
+                            ),
+                          );
+                          actions:
+                          <Widget>[
+                            ElevatedButton(
+                              child: const Text("OK"),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          ];
+                          controller.setEndDate(date);
+                        },
+                      ),
+                    ),
+                    Obx(
+                      () => Text(
+                        controller.getEndDate(),
+                        style: TextStyle(
+                          fontSize: 38,
+                          color: Color(0xffff9800),
+                        ),
+                      ),
                     ),
                     SizedBox(
                       height: 55,
                     ),
                   ],
+                ),
+                SizedBox(
+                  height: 55,
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -232,7 +242,7 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                       horizontal: 100,
                       vertical: 20,
                     ),
-                    primary: Color(0xffffc107),
+                    primary: Color(0xffff9800),
                     onPrimary: Colors.black,
                   ),
                   onPressed: () {
@@ -240,9 +250,7 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                   },
                   child: Text(
                     "Calculate",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
+                    style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
                 ),
               ],

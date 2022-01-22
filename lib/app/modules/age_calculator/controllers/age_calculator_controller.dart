@@ -48,13 +48,13 @@ class AgeCalculatorController extends GetxController {
     int year = startDate.value.year;
     int month = startDate.value.month;
     int day = startDate.value.day;
-    return ("$day-$month-$year");
+    return ("$year          $month              $day");
   }
 
   String getEndDate() {
     int year = endDate.value.year;
     int month = endDate.value.month;
     int day = endDate.value.day;
-    return ("$day-$month-$year");
+    return ("$year          $month              $day");
   }
 }
