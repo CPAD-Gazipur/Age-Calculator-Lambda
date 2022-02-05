@@ -20,21 +20,21 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  "AGE - CALCULATOR",
+                  "AGE-CALCULATOR",
                   style: TextStyle(
                     color: Colors.orange,
-                    fontSize: 60,
+                    fontSize: 30,
                   ),
                 ),
                 Text(
-                  "------------------------------------",
+                  "-------------------",
                   style: TextStyle(
                     color: Colors.orangeAccent,
                     fontSize: 60,
                   ),
                 ),
                 SizedBox(
-                  height: 48,
+                  height: 3,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -51,7 +51,7 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                             ),
                           ),
                           height: 150.0,
-                          width: 130.0,
+                          width: 115.0,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
                             border: Border.all(
@@ -67,13 +67,13 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                       ],
                     ),
                     SizedBox(
-                      width: 60,
+                      width: 3,
                     ),
                     Column(
                       children: [
                         Container(
                           height: 150.00,
-                          width: 130.0,
+                          width: 115.0,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
                             border: Border.all(
@@ -97,7 +97,7 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                       ],
                     ),
                     SizedBox(
-                      width: 60,
+                      width: 3,
                     ),
                     Column(
                       children: [
@@ -111,7 +111,7 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                             ),
                           ),
                           height: 150.0,
-                          width: 130.0,
+                          width: 115.0,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
                             border: Border.all(
@@ -129,7 +129,7 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                   ],
                 ),
                 SizedBox(
-                  height: 45,
+                  height: 15,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -177,7 +177,7 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                       ),
                     ),
                     SizedBox(
-                      height: 55,
+                      height: 30,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(25.0),
@@ -227,9 +227,6 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                           color: Color(0xffff9800),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 55,
                     ),
                   ],
                 ),
