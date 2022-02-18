@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:age_calculator_lamda/app/utils/text_styles.dart';
+import 'package:animated_flip_counter/animated_flip_counter.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -11,31 +12,27 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff4f075d),
+      appBar: AppBar(
+        title: Text('Age Calculator'),
+        backgroundColor: Color(0xff0d1321),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.portrait_rounded,
+            ),
+          ),
+        ],
+      ),
+      backgroundColor: Color(0xff0d1321),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: SingleChildScrollView(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text(
-                  "AGE-CALCULATOR",
-                  style: TextStyle(
-                    color: Colors.orange,
-                    fontSize: 30,
-                  ),
-                ),
-                Text(
-                  "-------------------",
-                  style: TextStyle(
-                    color: Colors.orangeAccent,
-                    fontSize: 60,
-                  ),
-                ),
-                SizedBox(
-                  height: 3,
-                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -44,9 +41,14 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                         Container(
                           child: Obx(
                             () => Center(
-                              child: Text(
-                                "${controller.age.value}",
-                                style: TextStyleManager.LARGE_TEXT,
+                              child: AnimatedFlipCounter(
+                                value: controller.yearsss.value,
+                                prefix: " ",
+                                textStyle: TextStyle(
+                                  fontSize: 45,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xffffc107),
+                                ),
                               ),
                             ),
                           ),
@@ -55,7 +57,7 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
                             border: Border.all(
-                                color: Color(0xffd55b4f),
+                                color: Color(0xff70e000),
                                 width: 5,
                                 style: BorderStyle.solid),
                           ),
@@ -77,15 +79,20 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
                             border: Border.all(
-                              color: Color(0xffd55b4f),
+                              color: Color(0xff70e000),
                               width: 5,
                             ),
                           ),
                           child: Obx(
                             () => Center(
-                              child: Text(
-                                "${controller.age2.value}",
-                                style: TextStyleManager.LARGE_TEXT,
+                              child: AnimatedFlipCounter(
+                                value: controller.monthsss.value,
+                                prefix: " ",
+                                textStyle: TextStyle(
+                                  fontSize: 45,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xffffc107),
+                                ),
                               ),
                             ),
                           ),
@@ -104,9 +111,14 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                         Container(
                           child: Obx(
                             () => Center(
-                              child: Text(
-                                "${controller.age1.value}",
-                                style: TextStyleManager.LARGE_TEXT,
+                              child: AnimatedFlipCounter(
+                                value: controller.daysss.value,
+                                prefix: " ",
+                                textStyle: TextStyle(
+                                  fontSize: 45,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xffffc300),
+                                ),
                               ),
                             ),
                           ),
@@ -115,7 +127,7 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
                             border: Border.all(
-                                color: Color(0xffd55b4f),
+                                color: Color(0xff70e000),
                                 width: 5,
                                 style: BorderStyle.solid),
                           ),
@@ -138,9 +150,7 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                       padding: const EdgeInsets.all(25.0),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          // padding: EdgeInsets.all(70),
-                          primary: Color(0xffffc107),
-                          // onPrimary: Colors.black,
+                          primary: Color(0xff70e000),
                         ),
                         child: Text(
                           'DATE OF BIRTH',
@@ -167,12 +177,23 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                         },
                       ),
                     ),
-                    Obx(
-                      () => Text(
-                        controller.getStartDate(),
-                        style: TextStyle(
-                          fontSize: 38,
-                          color: Color(0xffff9800),
+                    Container(
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Color(0xffffd60a),
+                          width: 5,
+                          style: BorderStyle.solid,
+                        ),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Obx(
+                        () => Text(
+                          controller.getStartDate(),
+                          style: TextStyle(
+                            fontSize: 28,
+                            color: Color(0xffffffff),
+                          ),
                         ),
                       ),
                     ),
@@ -183,8 +204,7 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                       padding: const EdgeInsets.all(25.0),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: Color(0xffffc107),
-                          onPrimary: Colors.black,
+                          primary: Color(0xff70e000),
                         ),
                         child: Text(
                           'CURRENT DATE',
@@ -206,25 +226,28 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                               const Duration(days: 3000),
                             ),
                           );
-                          actions:
-                          <Widget>[
-                            ElevatedButton(
-                              child: const Text("OK"),
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                            ),
-                          ];
+
                           controller.setEndDate(date);
                         },
                       ),
                     ),
-                    Obx(
-                      () => Text(
-                        controller.getEndDate(),
-                        style: TextStyle(
-                          fontSize: 38,
-                          color: Color(0xffff9800),
+                    Container(
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Color(0xffffd60a),
+                          width: 5,
+                          style: BorderStyle.solid,
+                        ),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Obx(
+                        () => Text(
+                          controller.getEndDate(),
+                          style: TextStyle(
+                            fontSize: 28,
+                            color: Color(0xffffffff),
+                          ),
                         ),
                       ),
                     ),
@@ -233,22 +256,46 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                 SizedBox(
                   height: 55,
                 ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 100,
-                      vertical: 20,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.all(50),
+                        shape: CircleBorder(),
+                        primary: Color(0xff70e000),
+                        onPrimary: Colors.black,
+                      ),
+                      onPressed: () {
+                        controller.calculateAge();
+                      },
+                      child: Text(
+                        "Calculate",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 15,
+                        ),
+                      ),
                     ),
-                    primary: Color(0xffff9800),
-                    onPrimary: Colors.black,
-                  ),
-                  onPressed: () {
-                    controller.calculateAge();
-                  },
-                  child: Text(
-                    "Calculate",
-                    style: TextStyle(color: Colors.black, fontSize: 20),
-                  ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.all(20),
+                        shape: CircleBorder(),
+                        primary: Color(0xffdb222a),
+                        onPrimary: Colors.black,
+                      ),
+                      onPressed: () {
+                        controller.reset();
+                      },
+                      child: Text(
+                        "Reset",
+                        style: TextStyle(
+                          color: Color(0xffffffff),
+                          fontSize: 10,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -258,10 +305,10 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
     );
   }
 
-  TextSpan container() {
-    return TextSpan(
-      text: '${controller.age.value}',
-      style: TextStyleManager.LARGE_TEXT,
-    );
-  }
+  // TextSpan container() {
+  //   return TextSpan(
+  //     text: '${controller.yearsss.value}',
+  //     style: TextStyleManager.LARGE_TEXT,
+  //   );
+  // }
 }
