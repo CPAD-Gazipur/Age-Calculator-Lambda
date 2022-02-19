@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:age_calculator_lamda/app/utils/text_styles.dart';
 import 'package:animated_flip_counter/animated_flip_counter.dart';
 import 'package:flutter/material.dart';
