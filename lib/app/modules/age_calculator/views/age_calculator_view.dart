@@ -1,3 +1,4 @@
+import 'package:age_calculator_lamda/app/routes/app_pages.dart';
 import 'package:age_calculator_lamda/app/utils/text_styles.dart';
 import 'package:animated_flip_counter/animated_flip_counter.dart';
 import 'package:flutter/material.dart';
@@ -11,19 +12,27 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Age Calculator'),
-        backgroundColor: Color(0xff0d1321),
+        title: Text(
+          'Age Calculator',
+          style: TextStyle(
+            color: Color(0xff000000),
+          ),
+        ),
+        backgroundColor: Color(0xff70e000),
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.toNamed(Routes.ABOUT);
+            },
             icon: Icon(
-              Icons.portrait_rounded,
+              Icons.portrait,
+              color: Color(0xff000000),
             ),
           ),
         ],
       ),
-      backgroundColor: Color(0xff0d1321),
+      backgroundColor: Color(0xff000000),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -42,11 +51,7 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                               child: AnimatedFlipCounter(
                                 value: controller.yearsss.value,
                                 prefix: " ",
-                                textStyle: TextStyle(
-                                  fontSize: 45,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xffffc107),
-                                ),
+                                textStyle: TextStyleManager.CHANGABLE_TEXT,
                               ),
                             ),
                           ),
@@ -86,11 +91,7 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                               child: AnimatedFlipCounter(
                                 value: controller.monthsss.value,
                                 prefix: " ",
-                                textStyle: TextStyle(
-                                  fontSize: 45,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xffffc107),
-                                ),
+                                textStyle: TextStyleManager.CHANGABLE_TEXT,
                               ),
                             ),
                           ),
@@ -112,11 +113,7 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                               child: AnimatedFlipCounter(
                                 value: controller.daysss.value,
                                 prefix: " ",
-                                textStyle: TextStyle(
-                                  fontSize: 45,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xffffc300),
-                                ),
+                                textStyle: TextStyleManager.CHANGABLE_TEXT,
                               ),
                             ),
                           ),

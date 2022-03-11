@@ -15,4 +15,9 @@ class TextStyleManager {
     fontSize: 16,
     color: Color(0xfff6fff8),
   );
+  static const TextStyle CHANGABLE_TEXT = TextStyle(
+    fontSize: 45,
+    color: Color(0xffffc107),
+    fontWeight: FontWeight.bold,
+  );
 }
