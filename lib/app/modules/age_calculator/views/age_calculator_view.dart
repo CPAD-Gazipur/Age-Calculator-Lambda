@@ -1,4 +1,6 @@
 import 'package:age_calculator_lamda/app/routes/app_pages.dart';
+import 'package:age_calculator_lamda/app/utils/calculate_button.dart.dart';
+import 'package:age_calculator_lamda/app/utils/reset_button.dart.dart';
 import 'package:age_calculator_lamda/app/utils/text_styles.dart';
 import 'package:animated_flip_counter/animated_flip_counter.dart';
 import 'package:flutter/material.dart';
@@ -254,41 +256,17 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.all(50),
-                        shape: CircleBorder(),
-                        primary: Color(0xff70e000),
-                        onPrimary: Colors.black,
-                      ),
-                      onPressed: () {
+                    CalculateBUTTON(
+                      onpress: () {
                         controller.calculateAge();
                       },
-                      child: Text(
-                        "Calculate",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15,
-                        ),
-                      ),
+                      text: "Calculate",
                     ),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.all(20),
-                        shape: CircleBorder(),
-                        primary: Color(0xffdb222a),
-                        onPrimary: Colors.black,
-                      ),
-                      onPressed: () {
+                    ResetBUTTON(
+                      onpress: () {
                         controller.reset();
                       },
-                      child: Text(
-                        "Reset",
-                        style: TextStyle(
-                          color: Color(0xffffffff),
-                          fontSize: 10,
-                        ),
-                      ),
+                      text: "reset",
                     ),
                   ],
                 ),
@@ -299,11 +277,4 @@ class AgeCalculatorView extends GetView<AgeCalculatorController> {
       ),
     );
   }
-
-  // TextSpan container() {
-  //   return TextSpan(
-  //     text: '${controller.yearsss.value}',
-  //     style: TextStyleManager.LARGE_TEXT,
-  //   );
-  // }
 }
